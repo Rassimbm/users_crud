@@ -1,16 +1,26 @@
-# users_cr
-MySQL Connection practice (CREATE, READ)
+# users_crud
+MySQL Connection practice (CREATE, READ, UPDATE, DELETE)
 
-Use the users_schema created in the MySQL course
+Use the same Flask project from the Users CR assignment
 
-Create a new Flask project
+On the Read (All) page add an Actions column
 
-Create 2 html pages, Read (All) and Create
+Show link will render the Users Read (One) page
 
-Display all users from the database on the Read (All) page
+Edit link will render the Users Edit page
 
-Display form to create new users on the Create page
+Delete link will delete the User from the database, and redirect to the Read (All) page
 
-When the form is submitted, a new user should be inserted into the database
+After successful creation of a new User, redirect to Read (One) page
 
-Redirect to Read (All) page after creating a new user, and the user just created should appear in the table
+Read (One) page will display the User's information
+
+Read (One) page to have Edit and Delete links
+
+Edit page will have a form pre-populated with the users information
+
+Update the updated_at field when editing the User's information
+
+After successful update of user, redirect to the Read (One) page and display the updated information
+
+All Home links should redirect to the Read (All) page
