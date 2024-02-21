@@ -10,20 +10,28 @@
 <body>
     <h3 class="text-center mt-4">All Users</h3>
     <div class="container col-6 text-center">
-        <table class="table table-md table-dark table-striped-columns table-hover text-center rounded">
+        <table class="table table-md table-dark table-striped-columns table-hover text-center">
             <thead>
                 <tr>
-                    <th class="col-2">Full Name</th>
-                    <th class="col-2">Email</th>
-                    <th class="col-2">Created At</th>
+                    <th>ID</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Created At</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 {%for user in users%}
                 <tr>
+                    <td>{{user.id}}</td>
                     <td>{{user.first_name}} {{user.last_name}}</td>
                     <td>{{user.email}}</td>
                     <td>{{user.created_at}}</td>
+                    <td>
+                        <a href="/show-user/{{user.id}}">Show</a>
+                        <a href="/edit-user/{{user.id}}">Edit</a>
+                        <a href="/delete-user/{{user.id}}">Delete</a>
+                    </td>
                 </tr>
                 {%endfor%}
             </tbody>
