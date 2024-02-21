@@ -20,3 +20,12 @@ class User:
         for dict_row in results:
             users.append(cls(dict_row))
         return users
+    
+    @classmethod
+    def save(cls, data):
+        query = """
+                    INSERT INTO users (first_name, last_name, email)
+                    VALUE (%(first_name)s, %(last_name)s, %(email)s)
+                """
+        new_user_id = connectToMySQL(cls.DB).query_db(query, data)
+        return new_user_id
