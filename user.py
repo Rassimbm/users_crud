@@ -48,3 +48,11 @@ class User:
                     WHERE id = %(id)s;
                 """
         return connectToMySQL(cls.DB).query_db(query, data)
+    
+    @classmethod
+    def delete(cls, data):
+        query = """
+                    DELETE FROM users
+                    WHERE id = %(id)s
+                """
+        return connectToMySQL(cls.DB).query_db(query, data)
