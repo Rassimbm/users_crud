@@ -7,6 +7,13 @@ app.secret_key = " 8891techa0128"
 def index():
     return render_template("index.html", users = User.get_all())
 
+@app.route("/show-user/<int:user_id>")
+def show_user(user_id):
+    data = {
+        "id": user_id
+    }
+    return render_template("show_user.html", user = User.get_one(data))
+
 @app.route("/add-user", methods = ["GET", "post"])
 def add_user():
     if request.method == "GET":
@@ -20,9 +27,15 @@ def add_user():
         User.save(data)
         return redirect("/")
     
-@app.route("/show-user/<int:user_id>")
-def show_user(user_id):
-    return render_template("show_user.html", user = User.get_one(user_id))
+@app.route("/edit-user/<int:user_id>")
+def r_edit_user(user_id):
+    data = {"id": user_id}
+    return render_template("edit_user.html", user = User.get_one(data))
+
+@app.route("/update-user", methods = ["POST"])
+def p_edit_user():
+    User.update(request.form)
+    return redirect("/")
     
 if __name__ == "__main__":
     app.run(debug=True)
