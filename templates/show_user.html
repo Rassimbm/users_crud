@@ -8,26 +8,20 @@
     <title>Get User</title>
 </head>
 <body>
-    <h3>User {{user.id}}</h3>
-    <a href="/">Home</a>
-    <table>
-        <tbody>
-            <tr>
-                <td>Full Name: {{user.first_name}} {{user.last_name}}</td>
-            </tr>
-            <tr>
-                <td>Email: {{user.email}}</td>
-            </tr>
-            <tr>
-                <td>Created On: {{user.created_at}}</td>
-            </tr>
-            <tr>
-                <td>Last Updated On: {{user.updated}}</td>
-            </tr>
-        </tbody>
-    </table>
-    <a href="/edit-user/{{user.id}}">Edit | </a>
-    <a href="/delete-user/{{user.id}}">Delete</a>
+    <div class="container col-4 p-4 mx-auto">
+        <div class="d-flex justify-content-between">
+            <h3>User {{user.id}}</h3>
+            <a href="/" class="btn btn-dark text-primary col-3">Home</a>
+        </div>
+        <div class="bg-dark text-light p-2 mt-2 rounded">
+            <p>Full Name: {{user.first_name}} {{user.last_name}}</p>
+            <p>Email: {{user.email}}</p>
+            <p><td>Created On: {{user.created_at}}</p>
+            <p><td>Last Updated On: {{user.updated_at}}</p>
+        </div>
+        <a href="/edit-user/{{user.id}}">Edit</a>
+        <a href="/delete-user/{{user.id}}">Delete</a>
+    </div>
 
 </body>
 </html>
