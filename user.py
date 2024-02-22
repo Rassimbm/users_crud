@@ -29,3 +29,14 @@ class User:
                 """
         new_user_id = connectToMySQL(cls.DB).query_db(query, data)
         return new_user_id
+    
+    @classmethod
+    def get_one(cls, user_id):
+        query = """
+                    SELECT *
+                    FROM users
+                    WHERE id = %(id)s;
+                """
+        data = {"id": user_id}
+        results = connectToMySQL(cls.DB).query_db(query, data)
+        return cls(results[0])
