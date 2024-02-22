@@ -20,5 +20,9 @@ def add_user():
         User.save(data)
         return redirect("/")
     
+@app.route("/show-user/<int:user_id>")
+def show_user(user_id):
+    return render_template("show_user.html", user = User.get_one(user_id))
+    
 if __name__ == "__main__":
     app.run(debug=True)
